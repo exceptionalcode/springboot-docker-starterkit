@@ -76,5 +76,6 @@ $ curl http://localhost:9001/callServerFromClient
 Output : {"timestamp":"2020-06-06T14:50:56.717+00:00","status":500,"error":"Internal Server Error","message":"","path":"/callServerFromClient"}
 
 > **Here you can observer you can not communicate from one container to other**
-
-  <a><img src="images/docker-no-communication.png.png"></a>
+<p align="center">
+  <img src="images/docker-no-communication.png" height="315" width="600" align="center">
+</p>
