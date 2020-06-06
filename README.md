@@ -1,1 +1,1 @@
-# springboot-microservice-docker-starterkit
+# springboot-docker-starterkit
