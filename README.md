@@ -155,3 +155,53 @@ $ docker stop <containerId>
 ```
 $ docker rmi <imageTagName>
 ```
+
+## Docker Compose 
+You can also run the container both the containers at once using docker compose./
+Compose is a tool for defining and running multi-container Docker applications.
+
+**Create YML(docker-compose.yml)
+```
+version: '3.5'
+
+services:
+  spring-boot-client:
+    container_name: spring-boot-client  
+    image: spring-boot-client
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /data/spring-boot-client
+    ports:
+      - "9001:9001"
+    networks:
+      - springbootnet
+  spring-boot-server:
+    container_name: spring-boot-server
+    image: spring-boot-server
+    build:
+      context: ./
+      dockerfile: Dockerfile
+    volumes:
+      - /data/spring-boot-server
+    ports:
+      - "9002:9002"
+    networks:
+      - springbootnet
+networks:
+  springbootnet:
+    name: springbootnet
+    driver: bridge
+```
+**Compose Up**
+```
+$ docker-compose up -d
+```
+> By using the following command you can start up your application You can also run docker-compose in detached mode using -d flag
+
+**Compose stop**
+```
+$ docker-compose stop
+```
+> By using the following command you can stop up your application
