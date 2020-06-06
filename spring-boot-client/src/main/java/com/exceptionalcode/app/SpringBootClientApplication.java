@@ -38,7 +38,7 @@ public class SpringBootClientApplication {
     @RequestMapping(method = RequestMethod.GET, value = "/callServerFromClient")
     public ResponseEntity<String> callServerFromClient() {
         RestTemplate restTemplate = new RestTemplate();
-        String message = restTemplate.getForObject("http://springboot-server:9002/callServer", String.class);
+        String message = restTemplate.getForObject("http://spring-boot-server:9002/callServer", String.class);
         return new ResponseEntity<>(message, HttpStatus.OK);
     }
 
