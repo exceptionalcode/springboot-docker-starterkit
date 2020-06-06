@@ -53,3 +53,26 @@ Same with run the spring-boot-server container
 ```
 $ docker run --rm -d -p 9002:9002 spring-boot-server
 ```
+
+**Test the container**\
+Client application endopoint
+```
+$ curl http://localhost:9001/
+```
+Output : Hello from client
+
+
+Server application endpoint 
+```
+$ curl http://localhost:9002/
+```
+Output : Hi!!!
+
+**Call Client to Server App**\
+To call Server endpoint(Container) from Client endpoint(Container)
+```
+$ curl http://localhost:9001/callServerFromClient
+```
+Output : {"timestamp":"2020-06-06T14:50:56.717+00:00","status":500,"error":"Internal Server Error","message":"","path":"/callServerFromClient"}
+
+> **Here you can observer you can not communicate from one container to other**
