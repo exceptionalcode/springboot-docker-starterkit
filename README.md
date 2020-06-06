@@ -1,6 +1,12 @@
-# springboot-docker-starterkit
+<h1 align="center">
+  <br>
+  <a><img src="images/springboot_docker.png"></a>
+  <br>
+  springboot-docker-starterkit
+  <br>
+</h1>
 
-Here I'll show how to deploy SpringBoot RESTful web service application with Docker
+Here I'll show how to deploy SpringBoot RESTful web service application with Docker and a communication between the containers.
 
 ### Prerequisite
 Installed: [Docker](https://www.docker.com/), [Java 1.8](https://www.oracle.com/technetwork/java/javase/overview/index.html), [Maven 3.x](https://maven.apache.org/install.html), [Git](https://www.digitalocean.com/community/tutorials/how-to-contribute-to-open-source-getting-started-with-git)
@@ -90,7 +96,7 @@ $ docker network create --driver=bridge springbootnet
 > bridge is the network type and spring-boot-network is the name of a network
 
 
-**List Network**\
+**List Network**
 ```
 docker network ls
 ```
