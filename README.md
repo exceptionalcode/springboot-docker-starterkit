@@ -169,7 +169,7 @@ services:
     container_name: spring-boot-client  
     image: spring-boot-client
     build:
-      context: ./
+      context: ./spring-boot-client/
       dockerfile: Dockerfile
     volumes:
       - /data/spring-boot-client
@@ -181,7 +181,7 @@ services:
     container_name: spring-boot-server
     image: spring-boot-server
     build:
-      context: ./
+      context: ./spring-boot-server/
       dockerfile: Dockerfile
     volumes:
       - /data/spring-boot-server
