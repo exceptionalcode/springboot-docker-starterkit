@@ -1,0 +1,31 @@
+version: '3.5'
+
+services:
+  spring-boot-client:
+    container_name: spring-boot-client  
+    image: spring-boot-client
+    build:
+      context: ./spring-boot-client/
+      dockerfile: Dockerfile
+    volumes:
+      - /data/spring-boot-client
+    ports:
+      - "9001:9001"
+    networks:
+      - springbootnet
+  spring-boot-server:
+    container_name: spring-boot-server
+    image: spring-boot-server
+    build:
+      context: ./spring-boot-server/
+      dockerfile: Dockerfile
+    volumes:
+      - /data/spring-boot-server
+    ports:
+      - "9002:9002"
+    networks:
+      - springbootnet
+networks:
+  springbootnet:
+    name: springbootnet
+    driver: bridge
