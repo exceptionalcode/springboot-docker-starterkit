@@ -1,6 +1,6 @@
 <h1 align="center">
   <br>
-  <a><img src="images/springboot_docker.png"></a>
+  <a><img src="images/springboot_docker.png" width="550" a>
   <br>
   springboot-docker-starterkit
   <br>
