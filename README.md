@@ -109,7 +109,7 @@ $ docker network connect springbootnet spring-boot-client
 $ docker network connect springbootnet spring-boot-server
 ```
 
-**Inpect the network**\
+**Inpect the network**
 ```
 $ docker inspect springbootnet
 ```
@@ -140,12 +140,12 @@ $ curl http://localhost:9001/callServerFromClient
 Output : Hello from server
 
 ### Extra Commands 
-**Stop Container**\
+**Stop Container**
 ```
 $ docker stop <containerId>
 ```
 
-**Remove Image**\
+**Remove Image**
 ```
 $ docker rmi <imageTagName>
 ```
