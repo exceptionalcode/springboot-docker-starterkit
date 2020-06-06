@@ -43,15 +43,16 @@ spring-boot-client                   latest                                     
 
 **Run Docker Container** 
 ```
-$ docker run --rm -d -p 9001:9001 spring-boot-client
+$ docker run --rm -d --name spring-boot-client -p 9001:9001 spring-boot-client
 ```
 > --rm stands for exited when the container is stopped or removed\
 > -d to start a container in the backgroud\
+> --name giving name to a container\ 
 > -p ports to map from container to ouside the world
 
 Same with run the spring-boot-server container
 ```
-$ docker run --rm -d -p 9002:9002 spring-boot-server
+$ docker run --rm -d --name spring-boot-server -p 9002:9002 spring-boot-server
 ```
 
 **Test the container**\
@@ -79,3 +80,72 @@ Output : {"timestamp":"2020-06-06T14:50:56.717+00:00","status":500,"error":"Inte
 <p align="center">
   <img src="images/docker-no-communication.png" height="315" width="600" align="center">
 </p>
+
+Since both the container are running on two diffrent networks, we would require them to connect on the same netowork.
+
+**Create your own network**\
+```
+$ docker network create --driver=bridge springbootnet
+```
+> bridge is the network type and spring-boot-network is the name of a network
+
+
+**List Network**\
+```
+docker network ls
+```
+
+```
+NETWORK ID          NAME                DRIVER              SCOPE
+2894c742b8a8        bridge              bridge              local
+9ddde2f74561        host                host                local
+29e3be9c7b5d        none                null                local
+ddc191b98c1a        springbootnet       bridge              local
+```
+
+**Connect contnainer on the network**
+```
+$ docker network connect springbootnet spring-boot-client
+$ docker network connect springbootnet spring-boot-server
+```
+
+**Inpect the network**\
+```
+$ docker inspect springbootnet
+```
+```
+ "Containers": {
+            "05d77b32de0c6d6e4862dec165d0bd96bbd6f055a6c1015cc68ecf98a2fe9cff": {
+                "Name": "spring-boot-server",
+                "EndpointID": "3a599a7220bc3782b9bfe03c2ab82bfa2f41bdb458955a0617e855ee181d2c84",
+                "MacAddress": "02:42:ac:12:00:03",
+                "IPv4Address": "172.18.0.3/16",
+                "IPv6Address": ""
+            },
+            "66935f760ff8fee60745ec1617cf5ee24e1dbe5008da46bf92d296d0df14cbd9": {
+                "Name": "spring-boot-client",
+                "EndpointID": "7d3434989cabd1c23654f4e604aacf54e76041fae05d75d1f93a7751db1e7d23",
+                "MacAddress": "02:42:ac:12:00:02",
+                "IPv4Address": "172.18.0.2/16",
+                "IPv6Address": ""
+            }
+```
+Both the container are connected on the same **springbootnet** network
+
+**Test Communitcation**\
+Endpoint client calling server :
+```
+$ curl http://localhost:9001/callServerFromClient
+```
+Output : Hello from server
+
+### Extra Commands 
+**Stop Container**\
+```
+$ docker stop <containerId>
+```
+
+**Remove Image**\
+```
+$ docker rmi <imageTagName>
+```
