@@ -28,7 +28,7 @@ To build an image go inside the spring-boot-client project directory on the loca
 ```
 $ docker build -t spring-boot-client .
 ```
-> **Note:** If you run this command for first time it will take some time in order to download base image from [DockerHub](https://hub.docker.com/)\
+> **Note:** If you run this command for first time it will take some time in order to download base image from [DockerHub](https://hub.docker.com/)
 
 Same for the spring-boot-server
 ```
