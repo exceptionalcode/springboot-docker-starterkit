@@ -45,9 +45,9 @@ spring-boot-client                   latest                                     
 ```
 $ docker run --rm -d -p 9001:9001 spring-boot-client
 ```
-> --rm stands for exited when the container is stopped or removed
-> -d to start a container in the backgroud
-> -p ports to map from container to ouside the world
+> --rm stands for exited when the container is stopped or removed\
+> -d to start a container in the backgroud\
+> -p ports to map from container to ouside the world\
 
 Same with run the spring-boot-server container
 ```
