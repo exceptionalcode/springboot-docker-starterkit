@@ -160,7 +160,7 @@ $ docker rmi <imageTagName>
 You can also run the container both the containers at once using docker compose./
 Compose is a tool for defining and running multi-container Docker applications.
 
-**Create YML(docker-compose.yml)
+**Create YML(docker-compose.yml)**
 ```
 version: '3.5'
 
